@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Building-site</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>
+            *{margin: 0; padding: 0;}
+            #parent{width: 600px; height: 50px; background-color: #ccc; margin: 10px auto; position: relative;}
+            #scroll{width: 50px; height: 50px; background-color: yellowgreen; position: absolute; left: 0;}
+            #txt{width: 200px; height: 100px; text-overflow: ellipsis; overflow: hidden; position: absolute; white-space: nowrap;}
+        </style>
+    </head>
+    <body>
+    <div id="parent">
+        <div id="scroll"></div>
+    </div>
+    <div id="txt">活动时间：6月11日-6月28日；
+
+这次评测体验征集活动是全开放式的
+
+你可以对新版本的某个功能进行深度评测,比如说针对内核或者针对界面
+
+你也可以对新版本整体功能进行全面评测，比如从个性能到功能再到个人感受
+
+你还可以对你使用过的浏览器进行评测对比，比如QQ浏览器和IE浏览器使用体验
+
+
+我们欢迎所有用心体验的人写下自己最真实的体验感受~
+
+参与方式：
+
+一：写评测赢大奖
+
+规则方式：
+
+1：下载安装QQ浏览器9.0版本，并在“软件首发”的“QQ浏览器”版块，开新帖写评测文章，
+2：为了方便收集，格式必须是：#QQ浏览器9.0版 #+标题
+3：测评写完后将链接po到评测征集帖回复中；
+4. 参与评测的主题至少需要2张以上QQ浏览器9.0使用时的截图，且不得少于500字
+5：活动期间可随时编辑帖子，活动结束后请勿对帖子进行任何修改</div>
+    </body>
+    <script>
+    window.onload = function(){
+        var oDivPar = document.getElementById('parent');
+        var oDivScr = document.getElementById('scroll');
+        var oDivTxt = document.getElementById('txt');
+
+        // console.log(oDivPar);
+        // console.log(oDivScr);
+        oDivScr.onmousedown = function(ev){
+            var oEvent = ev||event;
+            var disX = oEvent.clientX - oDivScr.offsetLeft;
+
+            oDivPar.onmousemove = function(ev){
+                var oEvent = ev||event;
+                var l = oEvent.clientX - disX;
+                if(l < 0){
+                    l = 0;
+                }else if(l > oDivPar.offsetWidth - oDivScr.offsetWidth){
+                    l = oDivPar.offsetWidth - oDivScr.offsetWidth;
+                }
+                //取两位小数
+                var scale = (parseInt(l/(oDivPar.offsetWidth - oDivScr.offsetWidth)*100))/100;
+
+
+                oDivScr.style.left = l + 'px';
+                oDivTxt.style.top 
+               document.title = scale; 
+            }
+
+            oDivPar.onmouseup = function(){
+                oDivPar.onmousemove = null;
+                oDivPar.onmouseup = null;
+            }
+
+        return false;
+
+        }
+
+    }
+    </script>
+</html>

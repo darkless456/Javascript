@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    </body>
+    <script>
+            // function Foo(){}
+            // Foo.prototype.method = function(a, b, c){
+                    //     console.log(this, a, b, c);
+            // }
+            // Foo.method = function(){
+                    //     Function.call.apply(Foo.prototype.method, arguments);
+            // }
+            // var f = new Foo(1, 2, 3);
+            //
+    function f(a) {
+        "use strict";
+        a = 42;
+        return [a, arguments[0]];
+    }
+        
+    var pair = f(17);
+    console.log(pair);
+    // assert(pair[0] === 42);
+    // assert(pair[1] === 17);
+    </script>
+</html>

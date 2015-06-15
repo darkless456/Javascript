@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<style>
+    div#china{
+        width: 600px;
+        height: 600px;
+        border: 1px solid green;
+    }
+    div#sh{
+        width: 80%;
+        height: 80%;
+        border: 1px solid blue;
+        margin: auto;
+    }
+    div#mh{
+        width: 80%;
+        height: 80%;
+        border: 1px solid red;
+        margin: auto;
+    }
+</style>
+    </head>
+    <body>
+    <div id="china">
+        <div id="sh">
+            <div id="mh"></div>
+        </div>
+    </div>
+    </body>
+<script>
+    // alert("china");
+    // var el;
+    var $ = function(el){
+        return document.getElementById(el);
+    }
+    $("china").addEventListener("click", function(){alert('china')}, false);
+    $("sh").addEventListener("click", function(ev){stopBubble(ev);alert('shanghai');}, false);
+    //位置不影响效果。
+    $("mh").addEventListener("click", function(){alert('minhang')}, false);
+
+    //stopBubble Method
+    function stopBubble(ev){
+        if(ev && ev.stopPropagation){
+            ev.stopPropagation(); //W3C standard
+        }
+        else{
+            window.event.cancelBubble = true; //IE only
+        }
+    }
+</script>
+</html>

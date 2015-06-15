@@ -1,0 +1,33 @@
+/* 
+* @Author: darkless
+* @Date:   2015-05-26 10:48:29
+* @Last Modified by:   darkless
+* @Email: narcissu456@gmail.com
+* @Last Modified time: 2015-05-26 13:44:10
+*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#container{
+    position: relative;
+    left: -100px;
+    height: 300px;
+    width: 130px;
+    /*background-color: green;*/
+}
+div#box{
+    height: 300px;
+    width: 100px;
+    background-color: #ccc;
+}
+#side{
+    position: absolute;
+    content: "";
+    height: 50px;
+    width: 30px;
+    background-color: darkblue;
+    top: 125px;
+    left: 100px;
+}

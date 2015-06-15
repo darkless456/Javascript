@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Inherit3</title>
+    </head>
+    <body>
+    </body>
+<script>
+    var Tiger = function(leg){
+        this.leg = leg;
+    }
+
+    var Cat = function(){
+        this.climb = function(){//this.climb为实例方法  
+            alert("climb tree");
+        }
+    }
+
+    Tiger.prototype = new Cat();
+    var tiger = new Tiger();
+    tiger.climb();
+    console.log(Cat.prototype);
+    // console.log(Cat.prototype);
+    console.log(Object.prototype.__proto__);
+    console.log(tiger.__proto__);
+
+</script>
+</html>

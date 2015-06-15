@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Event Delegation</title>
+<style>
+    li{
+        border: 1px solid red;
+        padding-left: 5px;
+        margin-left: -15px;
+        /*list-style-type: none;*/
+    }
+</style>
+    </head>
+    <body>
+    <input type="button" value="Click" id="input1" />
+    <ul id="ulBox">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    </body>
+<script>
+    function changeBackgroundColor(event, color){
+        var event = event || window.event;
+        var target = event.target || event.srcElement;
+        if(target.nodeName.toLowerCase() === "li"){
+            target.style.backgroundColor = color;
+        }
+    }
+
+    var inp = document.getElementById("input1");
+    var ul = document.getElementById("ulBox");
+    var li = document.getElementsByTagName("li");
+    var num = 5;
+
+    ul.onmousemove = function(event){
+        changeBackgroundColor(event, "red");
+    }
+
+    ul.onmouseout = function(event){
+        changeBackgroundColor(event, "");
+    }
+
+    inp.onclick = function(){
+        var nLi = document.createElement("li");
+        nLi.innerHTML = num;
+        ul.appendChild(nLi);
+        num++;
+    }
+</script>
+</html>

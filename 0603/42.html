@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <!-- <link rel="stylesheet" href="" type="text/css"> -->
+<style>
+body{height: 2000px;}
+*{margin: 0; padding: 0;}
+#box{width: 120px; height: 120px; background-color: #ccc; /*position: fixed; */right: 20px; top: 20px;}
+#toLeft{width: 50px; height: 50px; background-color: brown;}
+</style>
+</head>
+<body>
+    <div id="box">
+        <!-- <div id="toLeft"></div> -->
+    </div>
+</body>
+<!-- <script src="base-move-frames.js" type="text/javascript" charset="utf-8" async defer></script> -->
+<script src="move2.js" type="text/javascript" charset="utf-8" async defer></script>
+<script>
+    window.onload = function(){
+        var oDivBox = document.getElementById("box");
+
+        oDivBox.onclick = function(){
+            startMove(oDivBox, {width:500,opacity:60}, function(){
+                alert('a');
+            })
+        }
+    }
+
+        
+</script>
+</html>

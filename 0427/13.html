@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <ul>
+        <li>春</li>
+        <li>夏</li>
+        <li>秋</li>
+        <li>冬</li>
+    </ul>
+    </body>
+    <script>
+    // 原型  4个4
+    // for(i=0,lis=document.getElementsByTagName("li"),len=lis.length;i<len;i++){
+    //     lis[i].onclick = function(){
+    //         alert(i);
+    //     }
+    // }
+function t1(){
+    var i = 0;
+    for(lis=document.getElementsByTagName("li"),len=lis.length;i<len;i++){
+        alert(i);// 0 1 2 3
+        // var i = 0;
+        // lis[i].onclick = function(num){
+        //     return function(){
+        //     return alert(num);
+        //     }
+        //  }(i);
+     }
+ }
+ t1();
+//  var y = t1();
+//  y();
+    // function t1(){
+    //     var x = 0;
+    //     function t2(){
+    //         return alert(x + 1);
+    //     }
+    //     return t2;
+    // }
+    // var re = t1();
+    // re();
+
+    </script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>私有属性和公有方法</title>
+    </head>
+    <body>
+    </body>
+    <script>
+        // for(var i=0,arr=[];i<=3;i++){
+        //     arr.push(function(){
+        //         alert(i);
+        //     })
+        // }
+window.onload = function(){
+           for(var i=0,arr=[];i<=3;i++){
+            arr.push(function(num){//父函数变量
+                return function(){//子函数调用父函数的变量
+                    alert(num);
+                };
+            }(i))//将i传递给父函数
+        } 
+        arr[0]();
+        arr[1]();
+    }
+    </script>
+</html>

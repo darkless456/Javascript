@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Inherit2</title>
+    </head>
+    <body>
+    </body>
+<script>
+//Common function
+    function add(a , b){
+        add.invoketime++;
+        return a + b;
+    }
+    // var c = new add();
+    add.invoketime = 0;
+    add(1,1);
+    add(2,3);
+    console.log(add.invoketime);
+
+//Constructor
+    function Person(name,sex){
+        this.name = name;
+        this.sex = sex;
+    }
+
+    // function Origin(){
+    Person.prototype = {
+        getName: function(){
+            return this.name;
+        },
+        getSex: function(){
+            return this.sex;
+        }
+    }
+    // Person.prototype = new Origin();
+    var person = new Person("Kity","Female");
+    // console.log(person.name);
+    console.log(person.getName());
+</script>
+</html>

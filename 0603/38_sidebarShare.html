@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="38.css" type="text/css">
+</head>
+<body>
+    <div id="container">
+        <div id="box"></div>
+        <div id="side"></div>
+    </div>
+</body>
+<script>
+window.onload = function(){
+    var oDiv = document.getElementById("container");
+    var oSide = document.getElementById("side");
+    var timer = null;
+
+    // var cur = function(){
+    //     var count = 0;
+    //     return function(){
+    //         return count+=1;
+    //     }
+    // }
+    // console.log(cur());
+    // console.log(cur());
+    // console.log(cur());
+    // return;
+    var tmp = 100;//测试闭包是否正确形成
+    var mouseAction = function(){
+        var tmp = 0;
+        oSide.onclick = function(){
+            // if(oDiv.offsetLeft == -100){
+            //     popup(0);            
+            // }
+            // if(oDiv.offsetLeft <= 0){
+            //     popup(-100);
+            // }
+            // cur();
+            // alert(cur());
+            // alert(cur);
+            // return;
+
+
+            (function(tmp){
+                if((tmp%2) ==0){
+                    popup(0);
+                }
+                else if((tmp%2) !=0){
+                    popup(-100);
+                }
+            })(tmp);
+            tmp += 1;
+
+            console.log(tmp);
+        }           
+    }
+    mouseAction();
+
+    // oSide.onmouseout = function(){
+    //     popup(-100);
+    // }
+
+    function popup(iTarget){
+        clearInterval(timer);
+        timer = setInterval(function(){
+            var speed = (iTarget-oDiv.offsetLeft)/6;
+            speed = speed>0? Math.ceil(speed):Math.floor(speed);
+            if(iTarget == oDiv.offsetLeft){
+                clearInterval("timer")
+            }
+            else{
+                oDiv.style.left = oDiv.offsetLeft + speed + "px";                
+            }
+
+        }, 30);
+        
+    }
+}
+    // window.onload = function(){
+    //     var oDiv = document.getElementById("container");
+    //     var oBox = doucment.getElementById("box");
+    //     var timer = null
+
+    //     oDiv.onmouseover = function(){
+    //         sidebarFloat(0);
+    //     }
+
+    //     function sidebarFloat(iTarget){
+    //         var speed = (iTarget-oDiv.offsetLeft)/6;
+    //         speed = speed>0? Math.ceil(speed):Math.floor(speed);
+    //         timer = setInterval(function(){
+    //             if(Math.abs(iTarget-oDiv.offsetLeft) =0){
+    //                 clearInterval("timer");
+    //             }
+    //             else{
+    //                 oDiv.style.lefe = oDiv.offsetLeft + speed + "px";
+    //             }
+    //         }, 30)
+    //     }
+    // }
+</script>
+</html>

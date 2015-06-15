@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>this.xxx.apply</title>
+    </head>
+    <body>
+    </body>
+<script>
+    function Cat(leg,tail){
+        this.leg = leg;
+        this.tail = tail;
+        this.climb = function(){
+            alert("I can climb tree.");
+        }
+    }
+
+    function Tiger(color){
+        this.color = color;
+        this.parent = Cat;
+        this.parent.apply(this,arguments);
+        delete this.parent;
+    }
+
+    var tiger = new Tiger;
+    tiger.climb();
+    console.log(tiger);
+</script>
+</html>

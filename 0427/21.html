@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>原型冒充和复制继承--fail</title>
+    </head>
+    <body>
+    </body>
+<script>
+    var Cat = function(){
+        this.climb = function(){
+            alert("Climb Tree.");
+        }
+    }
+
+    var Tiger = function(leg, parent){
+        this.leg = leg;
+        this.parent = parent;
+        parent();
+        delete parent;
+    }
+
+var tiger = new Tiger(4, Cat);
+tiger.climb();
+</script>
+</html>

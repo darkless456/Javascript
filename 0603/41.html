@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="" type="text/css">
+    <style>
+        div#container{height: 600px; width: 600px; background-color: #ccc; background-image: url(34/01.jpg);}
+        #container>div{height: 100px; width: 100px; margin-top: 10px; background-color: red; float: left;}
+        img{display: inline;}
+    </style>
+</head>
+<body>
+<div>
+    <div id="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <!-- <div class="box1"></div> -->
+        <!-- <img src="34/01.jpg" alt=""> -->
+    </div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+
+        function getByClass(oParent, sClass){
+            var tmp = oParent.getElementsByTagName("*");
+            var aResult = [];
+            for(var i=0;i<tmp.length;i++){
+                if(tmp[i].className == sClass){
+                    aResult.push(tmp[i]);
+                }
+            }
+            return aResult;
+        }
+
+        var oDiv = document.getElementById("container");
+        // var aDiv = [];
+        var aDiv = getByClass(oDiv, "box");
+        // console.log(aDiv) 
+        //这个会被执行
+        oDiv.onclick = function(){
+            alert("oDiv_big");
+            // alert(getComputedStyle(this, null)["height"]);
+        }
+        //这个会被覆盖，不执行?
+        for(var i=0;i<aDiv.length;i++){
+            aDiv[i].onclick = function(){
+                alert('aDiv_small');
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+<style>
+*{margin: 0; padding: 0;}
+textarea{height: 120px; width: 200px; margin: 0 auto; display: block; border: 1px solid black;}
+ul{width: 400px; margin: 10px auto; border: 1px solid brown; list-style-type: none; padding: 10px;}
+li{opacity: 0; color: blue; /*border: 1px solid black;*/ margin-top: 5px;}
+input{background-color: greenyellow; border: 1px solid seagreen; height: 50px; width: 70px; font-size: 22px; position: absolute; right: 0; }
+input:hover{color: white; cursor: pointer;}
+input:active{box-shadow: 0px 0px 3px black;}
+</style>
+</head>
+<body>
+    <textarea name="文本输入框" autofocus="autofocus"></textarea>
+    <input type="button" value="发布"/>
+    <ul>
+    </ul>
+</body>
+<script src="compatibility.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="base-move-frames.js" type="text/javascript" charset="utf-8" async defer></script>
+<script>
+    window.onload = function(){
+        var oTxt = document.getElementsByTagName("textarea")[0];
+        var oBtn = document.getElementsByTagName("input")[0];
+        var oUl = document.getElementsByTagName("ul")[0];
+
+        oBtn.onclick = function(){
+            var oLi = document.createElement("li");
+            oLi.innerHTML = oTxt.value;
+            oTxt.value = '';
+
+            if(oUl.children.length > 0){
+                oUl.insertBefore(oLi, oUl.children[0]);
+            }else{
+                oUl.appendChild(oLi);
+            }
+
+            var iHeight = oLi.offsetHeight;
+
+            oLi.style.height = "0";
+
+            startMove(oLi, {height:iHeight}, function(){
+                startMove(oLi, {opacity: 100});
+            });
+        }
+    }
+</script>
+</html>

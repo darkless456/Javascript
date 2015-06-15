@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Call and Apply</title>
+    </head>
+    <body>
+    </body>
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        this.sayhello = function(){
+            alert('hello');
+        }
+    }
+
+    function Print(){
+        this.funcName = "Print";
+        this.show = function(){
+            var msg = [];
+            for(var key in this){
+                if(typeof(this[key]) !=  "function"){
+                    msg.push([key, ':', this[key]].join(" "));
+                }
+            }
+            alert(msg.join("/"));
+        }
+    }
+
+    function Student(name,age,grade,school){
+        Person.apply(this,arguments);
+        Print.apply(this,arguments);
+        // console.log(Print.apply(this,arguments));
+        this.grade = grade;
+        this.school = school;
+    }
+
+var s1 = new Student("Kevin",22,3,"MIT");
+// console.log(s1);
+s1.sayhello();
+s1.show();
+</script>
+</html>

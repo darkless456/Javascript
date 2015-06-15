@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <style>
+                *{
+                    margin: 0;
+                    padding: 0;
+                }
+                div#tabTit{
+                    margin: 20px 0 0 20px;
+                    text-align: center;
+                    /*border-left: 1px solid black;*/
+                }
+                div#tabTit li{
+                    float: left;
+                    list-style-type: none;
+                    width: 150px;
+                    /*background-color: blue;*/
+                    border: 1px solid black;
+                    /*border-left: 0;*/
+                }
+                /*div#tabTit > li{
+                    border-left: 1px solid black;
+                }*/
+                div .click{
+                    background-color: #99f;
+                }
+                div#tabTit li:hover{
+                    background-color: #aaf;
+                    cursor: hand;
+                    cursor: pointer;
+                }
+                div .content{
+                    width: 444px;
+                    height: 150px;
+                    margin-left: 20px;
+                    border: 1px solid black;
+                    border-top: 0;
+                    padding: 5px 5px 5px 5px;
+                    /*display: none;*/
+                }
+                div.content > div{
+                    display: none;
+                }
+                div#content .cons{
+                    display: block;
+                    /*background-color: gray;*/
+                }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="tabTit" class="tabTit">
+                <li class="click">No.1</li>
+                <li>No.2</li>
+                <li>No.3</li>
+            </div>
+            <br clear="all" />
+            <div id="content" class="content">
+                <div class="cons">第一栏的信息
+                    <br />
+                    <div>你好</div>
+                    <div>再见</div>
+                </div>
+                <div>次要内容是第二个</div>
+                <div>这是最后一个</div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var tab = document.getElementById("tabTit");
+        var tabTits = document.getElementById("tabTit").children;
+        var contents = document.getElementById("content").children;
+        var len = tabTits.length;
+
+    for(var i=0;i<len;i++){
+        tabTits[i].addEventListener("mouseover", display);
+        tabTits[i].index = i; //利用对象的静态方法
+        
+        function display(){
+            for(var i=0;i<len;i++){
+                tabTits[i].className = "";
+                contents[i].className = "";e
+            }
+
+            tabTits[this.index].className = "click";
+            contents[this.index].className = "cons";
+        }
+    }
+    </script>
+</html>

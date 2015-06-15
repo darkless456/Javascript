@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="" type="text/css">
+</head>
+<style>
+    *{margin: 0;padding: 0;}
+    div{height: 50px;width: 100px;background-color: green; margin: 10px 0; filter: alpha(opacity:30); opacity: 0.3;}
+</style>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script>
+window.onload = function(){
+//多个div变宽变窄运动框架
+    var oDiv = document.getElementsByTagName('div');
+    // var timer = null;
+
+    for(var i=0; i<oDiv.length; i++){
+        oDiv[i].alpha = 30;
+
+        oDiv[i].addEventListener("mouseover", function(){
+            startMove(this, 500, 100);
+            // var tmp = this;
+            // startMove.onload = function(){
+            //     changeOpacity(tmp, 100);
+            // }
+        }, false);
+        oDiv[i].addEventListener("mouseout", function(){
+            startMove(this, 100, 30);
+            // var tmp = this;
+            // startMove.onload = function(){
+            //     changeOpacity(tmp, 100);
+            // }
+        }, false);
+    }
+//js的同时执行多个函数，修改多个属性是否可行？单线程？异步？
+    function startMove(obj, iTarget, oPacity){
+        // var obj.timer = null;
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function(){
+            var speed1 = (iTarget - obj.offsetWidth)/6;
+            speed1 = speed1>0? Math.ceil(speed1):Math.floor(speed1);
+
+            var speed2 = (oPacity - obj.alpha)/6;
+            speed2 = speed2>0? Math.ceil(speed2):Math.floor(speed2);
+            if((obj.offsetWidth == iTarget)&&(obj.alpha == oPacity)>=0){
+                clearInterval(obj.timer);
+            }
+            else if((obj.offsetWidth == iTarget)&&(obj.alpha != oPacity)>=0){
+                obj.alpha += speed2;
+                obj.style.filter = "alpha(opacity:" + obj.alpha + ");";
+                obj.style.opacity = obj.alpha/100;
+            }
+            else if((obj.offsetWidth != iTarget)&&(obj.alpha == oPacity)>=0){
+                obj.style.width = obj.offsetWidth + speed1 + 'px';
+            }
+            else{
+                obj.alpha += speed2;
+                obj.style.filter = "alpha(opacity:" + obj.alpha + ");";
+                obj.style.opacity = obj.alpha/100;
+                obj.style.width = obj.offsetWidth + speed1 + 'px';
+            }
+        }, 30);
+    }
+
+    // function changeOpacity(obj, iTarget){
+    //     clearInterval(obj.timer);
+    //     obj.timer = setInterval(function(){
+    //         var speed = (iTarget - obj.alpha)/6;
+    //         speed = speed>0? Math.ceil(speed):Math.floor(speed);
+    //         if(obj.alpha == iTarget){
+    //             clearInterval(obj.timer);
+    //         }
+    //         else{
+    //             obj.alpha += speed;
+    //             obj.style.filter = "alpha(opacity:" + obj.alpha + ");";
+    //             obj.style.opacity = obj.alpha/100;
+    //         }
+    //     }, 30);
+    // }
+}
+</script>
+</html>

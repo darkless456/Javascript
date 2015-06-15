@@ -1,0 +1,59 @@
+/* 
+* @Author: darkless
+* @Date:   2015-04-30 11:45:31
+* @Last Modified by:   darkless
+* @Last Modified time: 2015-04-30 15:27:43
+*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header, .wrapper, .footer{
+    width: 600px;
+    /*height: 500px;*/
+}
+
+.header{
+    height: 120px;
+    background-color: blue;
+}
+
+.footer{
+    height: 120px ;
+    background-color: gray;
+    clear: both;
+}
+
+.wrapper{
+    height: 500px;
+    margin: 5px 0;
+}
+
+#main, #left, #right{
+    height: 500px;
+    float: left;
+}
+
+#main{
+    width: 354px;
+    background-color: deeppink;
+    margin: 0 5px;
+}
+
+#left, #right{
+    width: 118px;
+    background-color: green;
+}
+
+@media only screen and (max-width: 980px){
+    #left{
+        width: 0;
+    }
+}
+
+@media only screen and (max-width: 540px){
+    #right{
+        width: 0;
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    </body>
+    <script>
+    function closure() {
+
+        var sister = '大桃花'; 
+
+        var mysister = function() {
+                alert(sister);
+                // return sister;
+            }
+
+        return mysister();   // 这个函数出生时,有一个sister 叫大桃花
+
+}
+// var tmp = closure();
+// alert(tmp());
+// alert(tmp());
+// alert(tmp());
+function place() {  // 大清宫殿内
+
+    var sister = '大福晋';
+    var mysister = closure(); // 调用closure,mysister函数穿越到宫内
+
+    // alert(mysister());
+}
+
+place();
+    </script>
+</html>

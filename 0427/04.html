@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>time clock</title>
+</head>
+
+<body onload="clock()">
+    <div id="time"></div>
+</body>
+<script>
+    function clock(){
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        h = addzero(h);
+        m = addzero(m);
+        s = addzero(s);
+        document.getElementById("time").innerHTML=h + ":" + m + ":" + s;
+        t = setTimeout("clock()", 500);
+    }
+    // window.onload="clock()";
+    function addzero(i){
+        if (i < 10){
+            i = "0" + i;
+        }
+        return i;
+    }
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>inherit:fail</title>
+    </head>
+    <body>
+    </body>
+<script>
+    var Tiger = function(leg){
+        this.leg = leg;
+        // alert("I'm a Tiger.");
+    }
+
+    var Cat = function(){
+        this.climb = function(){
+            alert("I can climb.");
+        }
+    }
+    // Cat.climb();
+    var tiger = new Tiger(4);
+    var cat = new Cat();
+    // cat.climb();
+    console.log(tiger.leg);
+
+    Tiger.prototype = new cat;
+    tiger.climb();
+    // alert(cat.climb());
+    // console.log(tiger);
+    // console.log(cat);
+
+    // Tiger.prototype = cat;
+    // tiger.climb();
+</script>
+</html>

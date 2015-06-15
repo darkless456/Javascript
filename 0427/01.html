@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>新建网页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+</head>
+    <body style="font:14px arial">
+    	<button type="button" onclick="alert('welcome')">Button</button>
+        <p>
+            document.getElementById();<br />
+            document.getElementsByClassName();<br>
+            document.getElementsByName();<br>
+            document.getElementsByTagName();<br>
+        </p>
+
+        <p id="test1">change the web content</p>
+        <button type="button" onclick="change()">change text</button>
+    </body>
+<script>
+	console.log("5");
+    function change(){
+        var a = document.getElementById("test1");
+        a.innerHTML = "changed web content";
+    }
+
+</script>
+</html>

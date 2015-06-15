@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="37.css" type="text/css">
+</head>
+<body>
+    <input type="button" name="" value="StartTo300">
+    <input type="button" name="" value="StartTo500">
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+</body>
+<script>
+    window.onload = function(){
+        var oDiv = document.getElementById("test1");
+        var oBtn0 = document.getElementsByTagName("input")[0];
+        var oBtn1 = document.getElementsByTagName("input")[1];
+        var timer = null;
+        oBtn0.onclick = function(){
+            startMove(300);
+        }
+        oBtn1.onclick = function(){
+            startMove(500);
+        }
+
+        function startMove(iTarget){
+            // alert(iTarget);
+            clearInterval(timer);
+            timer = setInterval(function(){
+            var speed = (iTarget -oDiv.offsetLeft)/20
+            speed = speed>0? Math.ceil(speed): Math.floor(speed);
+            oDiv.style.left = oDiv.offsetLeft + speed + "px";
+            }, 30);
+        }
+
+        // function startMove(iTarget){
+        //     alert(iTarget.typeOf);
+        //     return;
+        //     clearInterval(timer);
+        //     timer = setInterval(function (){
+        //         var speed=(iTarget-oDiv.offsetLeft)/10;
+        //         //speed=Math.floor(speed);
+        //         speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                
+        //         oDiv.style.left=oDiv.offsetLeft+speed+'px';
+                
+        //         document.title=oDiv.offsetLeft+','+speed;
+        //     }, 30);            
+        // }
+    }
+</script>
+</html>

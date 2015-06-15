@@ -1,0 +1,48 @@
+/* 
+* @Author: darkless
+* @Date:   2015-04-10 22:24:48
+* @Last Modified by:   darkless
+* @Last Modified time: 2015-04-11 08:11:02
+*/
+div#nav{
+    font-family: "微软雅黑", sans-serif;
+}
+ul#menu, #menu ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    /*float: left;*/
+}
+#menu li{
+    display: inline;
+    /*float: left;*/
+    text-align: center;
+    position: relative;
+    /*margin: 0 40px;*/
+}
+#menu li ul{
+    position: absolute;
+    top: auto;
+    left: -999em;
+}
+/*#category span{
+    display: block;
+    width: 100%;
+}*/
+#menu li:hover ul{
+    top: auto;
+    left: 0;
+}
+#menu a , #category a{
+    /*display: block;*/
+    text-decoration: none;
+    color: #FFF;
+    background-color: #73a0c5;
+    padding: 1px 20px 2px 20px;
+    border: 1px solid #fff;
+    /*float: left;*/
+}
+#menu a:hover , # menu a:visited{   
+    color: #73a0c5;
+    background: #FFF;
+}

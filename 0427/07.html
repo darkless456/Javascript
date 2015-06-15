@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Scroll-Image</title>
+    <style>
+        div ,ul , li , a , img{
+            padding: 0;
+            margin: 0;
+            /*border: 0;*/
+        }
+        div#wrapper{
+            /*background-color: black;*/
+            /*width: 328px;*/
+            width: 106px;
+            height: 147px;
+            overflow: hidden;
+            border: 1px dashed #ccc;
+            margin: 0 auto;
+            /*padding: 2px;*/
+        }
+        #wrapper ul{
+            text-align: center;
+            /*width: */
+        }
+        #dis li{
+            list-style-type: none;
+            /*padding: 0;*/
+            /*display: inline; 这个会导致全部图片未全显示完成时，消失有bug*/
+            float: left;
+        }
+        .pic img{
+            border: 1px solid #ddd;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul id="dis">
+            <li class="pic"><a href="#"><img src="image/i01.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/i02.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/i03.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/i04.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/i05.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/i06.jpg" width="100px" height="141px" alt="" /></a></li>
+<!--             <li class="pic"><a href="#"><img src="image/01.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/02.png" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/03.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/04.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="image/05.jpg" width="100px" height="141px" alt="" /></a></li>
+            <li class="pic"><a href="#"><img src="" alt="" /></a></li> -->
+        </ul>
+    </div>
+</body>
+<script src="07.js" type="text/javascript"></script>
+</html>

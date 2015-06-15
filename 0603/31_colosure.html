@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="" type="text/css">
+</head>
+<body>
+    
+</body>
+<script>
+//     for(var i=0,arr=[];i<=3;i++) {
+//         (function(i){
+//             return arr.push(function(){
+//             alert(i)});
+//         })(i);
+
+//     }
+
+//     for(var i = 1; i <= 4; i++){
+//         (function(i){
+//             return setTimeout(function(){
+//             console.log(i);
+//             },100)
+//         })(i);   //参数是按顺序传入的，可以缓存i的所有值
+//     }
+        
+
+// arr[0]();  // ?? 结果不是0
+// arr[1]();  // ?? 全是4
+
+    var cnt = function(){
+        var color = "black";
+        return function(){
+            var tmp = color;
+            if(tmp == "black"){
+                color = "white";
+            }
+            else if(color == "white"){
+                color = "black";
+            }
+            return tmp;
+        }
+    }
+
+    console.log(cnt());
+    console.log(cnt());
+    console.log(cnt());
+// var cnt = (function(){
+//     var curr = "black";
+//     return function(){
+//         var tmp = curr;
+//         if(curr == "black"){
+//             curr = "white";
+//         }
+//         else if(curr == "white"){
+//             curr = "black";
+//         }
+//         return tmp;
+//     }
+// })();
+
+// cnt();
+// cnt();
+// cnt();
+// cnt();
+</script>
+</html>

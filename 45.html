@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Building-site</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style type="text/css" media="screen">
+            div{width: 10px; height: 10px; background-color: red; position: absolute;}   
+        </style>
+    </head>
+    <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    </body>
+    <script>
+    function getPos(ev){
+        var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+        var scrollLeft = document.documentElement.scrollLeft||document.body.scrollLeft;
+
+        return {x:ev.clientX+scrollLeft, y:ev.clientY+scrollTop};
+    }
+
+    window.onload = function(){
+        var aDiv = document.getElementsByTagName("div");
+
+        document.onmousemove = tail;
+        function tail(ev){
+            var oEvent = ev||event;
+            var pos = getPos(oEvent);
+            // aDiv[0].style.top = oEvent.clientY;
+            // aDiv[0].style.left = oEvent.clientX;
+            for(var i=aDiv.length-1;i>0;i--){
+                aDiv[i].style.top = aDiv[i-1].offsetTop + 'px';
+                aDiv[i].style.left = aDiv[i-1].offsetLeft + 'px';
+            }
+
+            aDiv[0].style.left = pos.x + 'px';
+            aDiv[0].style.top = pos.y + 'px';
+        }
+
+    }
+    </script>
+</html>

@@ -1,0 +1,36 @@
+/* 
+* @Author: darkless
+* @Date:   2015-05-25 14:13:21
+* @Last Modified by:   darkless
+* @Email: narcissu456@gmail.com
+* @Last Modified time: 2015-05-25 15:02:43
+*/
+#test1{
+    height: 300px;
+    width: 150px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #000;
+    /*margin-top: 40px;*/
+    /*margin-left: 20px;*/
+    /*margin-right: 20px;*/
+}
+
+#test3,#test2{
+    height: 500px;
+    width: 1px;
+    background-color: #ccc;
+}
+
+#test2{
+    position: absolute;
+    top: 0;
+    left: 300px;
+}
+
+#test3{
+    position: absolute;
+    top: 0;
+    left: 500px;
+}

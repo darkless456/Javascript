@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <pre>
+        this分析
+        原则，指向调用函数时的对象
+
+    </pre>
+    </body>
+    <script>
+    // var a = function(i){
+    //     alert(this.i);//obj window
+    // };
+    // b.c = a;
+    // alert(b.c);
+    function a(){
+        function b(){
+            alert(this);
+        }
+        b();
+    }
+    a();//window
+    </script>
+</html>

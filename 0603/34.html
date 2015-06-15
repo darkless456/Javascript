@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Scrolling Pics</title>
+        <!-- <link rel="stylesheet" href="" type="text/css"> -->
+        <style>
+                    *{margin: 0; padding: 0;}
+                    div{margin: 10px auto; width: 178px; height: 432px; border: 1px solid black; position: relative; overflow: hidden;}
+                    ul{position: absolute; top: 0; left: 0;}
+                    li{float: left; list-style-type: none;}
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <ul>
+                <li><img src="34/01.jpg" alt="img" /></li>
+                <li><img src="34/02.jpg" alt="img" /></li>
+                <li><img src="34/03.jpg" alt="img" /></li>
+                <li><img src="34/04.jpg" alt="img" /></li>
+            </ul>
+        </div>
+        <a href="javascript:;">左滚</a>
+        <br>
+        <a href="javascript:;">右滚</a>
+    </body>
+    <script>
+window.onload = function(){
+    var oUl = document.getElementsByTagName("ul")[0];
+    var aLi = document.getElementsByTagName("li");
+    // alert(aLi[0].width);
+    // return;
+    var speed = 2;
+    oUl.innerHTML += oUl.innerHTML;
+    var nLen = aLi.length;
+    // oUl.style.width = aLi[0].offsetWidth*nLen + 'px';
+    oUl.style.height = aLi[0].offsetHeight*nLen + 'px'
+    // alert(oUl.offsetLeft);
+    // return;
+    var aA = document.getElementsByTagName("a");
+    aA[0].addEventListener("click",function(){
+        speed = -2;
+    })
+    aA[1].addEventListener("click",function(){
+        speed = 2;
+    })
+    var move = function(){
+        if(oUl.offsetTop < -oUl.offsetHeight/2){
+            oUl.style.top = "0";
+        }
+        if(oUl.offsetTop > 0){
+            oUl.style.top = -oUl.offsetHeight/2 + 'px';
+        }
+        oUl.style.top = oUl.offsetTop + speed + "px";
+    }
+    var timer = setInterval(move, 30);
+
+    var oDiv = document.getElementsByTagName("div")[0];
+    oDiv.addEventListener('mouseover', function(){
+        clearInterval(timer);
+    })
+    oDiv.addEventListener('mouseout', function(){
+        timer = setInterval(move, 30);
+    })
+}
+    </script>
+</html>

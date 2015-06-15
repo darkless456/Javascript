@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="" type="text/css">
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+</body>
+ <script>
+    var lis=document.getElementsByTagName('li');
+    for(var i=0,len=lis.length-1;i<len;i++){
+        (function(i){
+            setTimeout(lis[i].style.backgroundColor='red',5000);
+        })(i);
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>light on&off</title>
+</head>
+<body>
+    <img id="light" src="./image/light_off.gif" height="180" width="109" alt="" onclick="func()">
+
+    <br>
+    <input type="text" name="" value="" id="num">
+    <button type="button" onclick="off()">Click Me</button>
+    <script>
+    function off(){
+        var z = document.getElementById("num").value;
+        if (z == "" || isNaN(z)){
+            alert("isn't num!");
+        }
+        else{
+            alert("OK");
+        }
+    }
+    </script>
+</body>
+
+<script>
+    function func(){
+        var l = document.getElementById('light');
+        if (l.src.match("./image/light_off.gif")){
+            l.src="./image/light_on.gif";
+        }
+        else{
+            l.src="./image/light_off.gif";
+        }
+    }
+</script>
+</html>

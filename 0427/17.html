@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Prototype</title>
+    </head>
+    <body>
+    </body>
+<script>
+    function Person(name){
+        this.name = name;
+    }
+    Person.prototype.printName = function(){
+        alert(this.name);
+    }
+    var per = new Person("bob");
+    console.log(per.__proto__);//Person
+    console.log(per.constructor);//function Person(name){}
+    console.log(Person.prototype);
+    console.log(Person.prototype.prototype);
+    per.printName;
+    // console.log(Person.prototype.prototype.prototype);
+
+
+</script>
+</html>
